@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>A Game</title>
+</head>
+<body>
+    <form action="/madlib">
+        <label>Name a person <input type="text" name="name"></label>
+
+        <br>
+
+        <label>Give a color <select name="color">
+            <option value="red">Red</option>
+            <option value="blue">Blue</option>
+            <option value="purple">Purple</option>
+        </select>
+        </label>
+
+        <br>
+
+        <label>Pick an adjective
+            <input type ="radio" name="adjective" value="funny">Funny
+            <input type ="radio" name="adjective" value="smart">Smart
+            <input type ="radio" name="adjective" value="polkadot">Polk-a-dot
+        </label>
+
+        <br>
+        <label>Pick a noun<input type="text" name="noun"></label>
+
+        <br>
+        <label>What verb do you want to use? 
+            <input type ="checkbox" name="verb[]", value="ran">Ran
+            <input type ="checkbox" name="verb[]", value="walked">Walked
+            <input type ="checkbox" name="verb[]", value="hopped">Hopped
+        </label>
+        <br>
+
+        <input type="submit">
+    </form>
+</body>
+</html>

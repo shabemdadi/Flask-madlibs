@@ -53,8 +53,12 @@ def show_madlib():
 
     verb = choice(list_of_verbs)
 
+    list_of_templates = ["madlibs.html","madlibs_2.html","madlibs_3.html"]
 
-    return render_template("madlibs.html",person=person,color=color,
+    template = choice(list_of_templates)
+
+
+    return render_template(template,person=person,color=color,
         noun=noun,adjective=adjective, verb=verb)
 
 

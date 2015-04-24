@@ -1,4 +1,4 @@
-from random import choice
+from random import choice, sample
 
 from flask import Flask, render_template, request
 
@@ -25,9 +25,9 @@ def greet_person():
         'awesome', 'terrific', 'fantastic', 'neato', 'fantabulous', 'wowza', 'oh-so-not-meh',
         'brilliant', 'ducky', 'coolio', 'incredible', 'wonderful', 'smashing', 'lovely']
 
-    compliment = choice(AWESOMENESS)
+    compliments = sample(AWESOMENESS,3)
 
-    return render_template("compliment.html", person=player, compliment=compliment)
+    return render_template("compliment.html", person=player, compliment=compliments)
 
 @app.route('/game')
 def show_game_form():
@@ -37,21 +37,30 @@ def show_game_form():
     if response == 'yes':
         return render_template("game.html")    
 
-@app.route("/madlib")
+@app.route("/madlib", methods=["POST","GET"])
 def show_madlib():
-    person = request.args.get("name")
-    color  = request.args.get("color")
-    adjective = request.args.get("adjective")
-    noun = request.args.get("noun")
-    verbs = request.args.getlist('verb[]')
+    
+    if request.method == "POST":
 
-    list_of_verbs=[]
-    for verb in verbs:
-        list_of_verbs.append(verb)
+        person = request.form.get("name")
+        color  = request.form.get("color")
+        adjective = request.form.get("adjective")
+        noun = request.form.get("noun")
+        verb = request.form.get('verb')
 
-    print list_of_verbs
+    else:
 
-    verb = choice(list_of_verbs)
+        person = request.args.get("name")
+        color  = request.args.get("color")
+        adjective = request.args.get("adjective")
+        noun = request.args.get("noun")
+        verb = request.args.get('verb')
+        # print verbs
+        # list_of_verbs=[]
+        # for verb in verbs:
+        #     list_of_verbs.append(verb)
+        # print list_of_verbs
+        # verb = choice(verbs)
 
     list_of_templates = ["madlibs.html","madlibs_2.html","madlibs_3.html"]
 

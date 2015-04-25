@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>A Game</title>
+  <script src="https://code.jquery.com/jquery.js"></script>
 </head>
 <body>
     <form action="/madlib" method="GET">
@@ -37,5 +38,20 @@
 
         <input type="submit">
     </form>
+    <script>
+         
+        function alertUser(){$(":input").each(function() {
+            if($(this).val() === ""){
+                alert("Empty Fields!!");
+                event.preventDefault()}
+            });
+        }
+
+        $(":submit").on("click",alertUser);
+        
+    
+    </script>
+        
+   
 </body>
 </html>

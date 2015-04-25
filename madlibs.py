@@ -25,9 +25,9 @@ def greet_person():
         'awesome', 'terrific', 'fantastic', 'neato', 'fantabulous', 'wowza', 'oh-so-not-meh',
         'brilliant', 'ducky', 'coolio', 'incredible', 'wonderful', 'smashing', 'lovely']
 
-    compliments = sample(AWESOMENESS,3)
+    compliments_list = sample(AWESOMENESS,3)
 
-    return render_template("compliment.html", person=player, compliment=compliments)
+    return render_template("compliment.html", person=player, compliments=compliments_list)
 
 @app.route('/game')
 def show_game_form():
@@ -62,7 +62,7 @@ def show_madlib():
         # print list_of_verbs
         # verb = choice(verbs)
 
-    list_of_templates = ["madlibs.html","madlibs_2.html","madlibs_3.html"]
+    list_of_templates = ["madlibs.html"]    #,"madlibs_2.html","madlibs_3.html"]
 
     template = choice(list_of_templates)
 
